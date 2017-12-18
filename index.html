@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystal Game</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+	
+</head>
+
+<body>
+
+	<div class="jumbotron">
+		<h1 class="text-center">Crystals Collector!</h1>
+	</div>
+
+	<div class="container">
+		
+
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Rules</h3>
+				</div>
+					<div class="panel-body">
+						You will be given a random number at the start of the game. 
+						<br><br>
+
+						There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+						<br><br>
+							
+						You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
+						<br><br>
+							
+						The value of each crystals is hidden from you until you click on it. 
+						<br><br>
+
+						Each time when the game starts the game will change the values of each crystal.
+					</div>
+				</div>
+			</div>
+	</div>
+
+	
+	<div class="container">
+			<div class="col-sm-3 text-center">
+				<div class="float-left">
+				<div class="panel panel-default">
+					<div id="randomNumber"></div>
+				</div>
+			
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="col-sm-3 text-center">
+			<div class="float-none">
+			<div class="panel panel-default">
+				<div id="wins">Wins: </div>
+				<div id="loses">Loses: </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container">
+		<div class="col-sm-2">
+			<div class="float-left">
+			<img id="image1" src="assets/images/crystal1.jpeg" height="100" width="100">
+		
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-sm-2">
+			<div class="float-left">
+			<img id="image2" src="assets/images/crystal2.jpg" height="100" width="100">
+		</div>
+	</div>
+</div>
+
+	<div class="container">
+		<div class="col-sm-2">
+			<div class="float-left">
+			<img id="image3" src="assets/images/crystal3.jpg" height="100" width="100">
+		
+	</div>
+</div>
+
+	<div class="container">
+		<div class="col-sm-2">
+			<div class="float-none">
+			<img id="image4" src="assets/images/crystal4.jpg" height="100" width="100">
+		</div>
+	</div>
+</div>
+
+</div>
+
+
+	<div class="container">
+			<div class="col-sm-3 text-center mt-3">
+				<div class="panel panel-default">
+					<div id="userScore">Your Total Score is: </div>
+				</div>
+			</div>
+
+
+
+<script>
+ 	//create the random number between 9 and 120
+ 	var randomNumber = Math.floor((Math.random() * 101) +19) ;
+	console.log(randomNumber);
+	$("#randomNumber").append(randomNumber);
+
+	var userScore = 0;
+
+	var crystal1 = Math.floor((Math.random() * 12) +1);
+	var crystal2 = Math.floor((Math.random() * 12) +1);
+	var crystal3 = Math.floor((Math.random() * 12) +1);
+	var crystal4 = Math.floor((Math.random() * 12) +1);
+	var losses = 0;
+	var wins = 0;
+
+	console.log(crystal1);
+	console.log(crystal2);
+	console.log(crystal3);
+	console.log(crystal4);
+
+
+	//give on click event and values to the 4 crystals
+	$(document).ready(function() {
+		$("#image1").click(function() {
+		userScore = userScore + crystal1;
+		$("#userScore").html("Your Total Score is: " + userScore);
+		
+});
+
+});
+
+	$(document).ready(function() {
+		$("#image2").click(function() {
+		userScore = userScore + crystal2;
+		$("#userScore").html("Your Total Score is: " + userScore);
+
+});
+
+});
+
+	$(document).ready(function() {
+		$("#image3").click(function() {
+		userScore = userScore + crystal3;
+		$("#userScore").html("Your Total Score is: " + userScore);
+		
+
+});
+
+});
+
+	$(document).ready(function() {
+		$("#image4").click(function() {
+		userScore = userScore + crystal4;
+		$("#userScore").html("Your Total Score is: " + userScore);
+		console.log(userScore);
+
+});
+
+		// if (userScore === randomNumber) {
+		// 	alert("you win!");
+		// }
+
+		// if (userScore > randomNumber) {
+		// 	alert("you lose!");
+		// 	losses++
+		// 	console.log(losses);
+		// }
+
+});
+
+	if (userScore == randomNumber) {
+		console.log("joe")
+		wins++;
+		//$("#wins").html("Wins: " + wins);
+	} else if (userScore > randomNumber) {
+		losses++;
+		$("#losses").html("Losses: " + losses);
+
+	}
+	
+ </script>
+
+
+
+
+
+
+</body>
+</html>
